@@ -1,26 +1,68 @@
-<p align="center">
-	<h1 align="center">
+<h1 align="center">
     <span>LastPass Clone  ✂️ 📋</span>
-  </h1>
-</p>
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/17098382/133039368-a98cccb1-8f96-46fb-a697-20975d2a4828.png" width="100" alt="Logo">
-</p>
-
-
+</h1>
 
 ## PREVIEW
+
 https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-973b-4a2df98528c0.mp4
 
-
 ## Getting Started
-  - First, please intall the Yarn
 
+### Database
 
-  - Second, run the local project:
+- First, enter in the database dir:
+
   ```bash
-  bash run.sh
+    cd database/
   ```
+
+- First, run the database server:
+
+    ```bash
+    npm i && npm run start
+    # or
+    yarn && yarn start
+    ```
+
+### Middle Step I
+
+- Open a new terminal tab.
+
+### Frontend
+
+- First, enter in the frontend dir:
+
+  ```bash
+    cd frontend/
+  ```
+
+- First, run the frontend server:
+
+    ```bash
+    npm i && npm run start
+    # or
+    yarn && yarn start
+    ```
+
+### Middle Step II
+
+- Open a new terminal tab.
+
+### Backend
+
+- First, enter in the backend dir:
+
+  ```bash
+    cd backend/
+  ```
+
+- First, run the backend server:
+
+    ```bash
+    npm i && npm run start
+    # or
+    yarn && yarn start
+    ```
 
 ## Back End
 
@@ -64,8 +106,8 @@ Is good to quote too the ISR (Incremental Static Regeneration), with you could g
 </p>
 
 ## Referece to Clone:
-Here is an overview of LastPass: https://www.youtube.com/watch?v=a86PbT5XZt8  
-• Please review these two things in the video to keep this simple: 
-1.  At 26 seconds into the video – note the cards on the screen  - one card for each application or website with the user specified name visible.  
-2.  At 30 seconds - card contents: URL, Name, Folder, Username, Password, and Notes.
 
+Here is an overview of LastPass: https://www.youtube.com/watch?v=a86PbT5XZt8  
+• Please review these two things in the video to keep this simple:
+1.  At 26 seconds into the video – note the cards on the screen  - one card for each application or website with the user specified name visible.
+2.  At 30 seconds - card contents: URL, Name, Folder, Username, Password, and Notes.
