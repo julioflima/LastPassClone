@@ -1,12 +1,10 @@
-/* eslint-disable class-methods-use-this */
-
 import { ICard } from '../interfaces/ICard';
 import ApiService from './ApiService';
 
 export default class CardsService extends ApiService {
   constructor() {
     const baseUrl = String(process.env.BASE_URL);
-    const path = '/password-cards';
+    const path = '/cards';
 
     super({}, baseUrl + path);
   }

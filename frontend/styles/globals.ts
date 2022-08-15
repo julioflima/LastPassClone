@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -22,85 +22,6 @@ Remove the margin in all browsers.
  * Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
  */
 
- @font-face {
-  font-family: "BancoDoBrasilTitulos";
-  src: url('/assets/fonts/BancoDoBrasilTitulos-Light.ttf') format('truetype');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTitulos";
-  src: url('/assets/fonts/BancoDoBrasilTitulos-Regular.ttf') format('truetype');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTitulos";
-  src: url('/assets/fonts/BancoDoBrasilTitulos-Medium.ttf') format('truetype');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTitulos";
-  src: url('/assets/fonts/BancoDoBrasilTitulos-Bold.ttf') format('truetype');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTextos";
-  src: url('/assets/fonts/BancoDoBrasilTextos-Light.ttf') format('truetype');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTextos";
-  src: url('/assets/fonts/BancoDoBrasilTextos-Regular.ttf') format('truetype');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTextos";
-  src: url('/assets/fonts/BancoDoBrasilTextos-Medium.ttf') format('truetype');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTextos";
-  src: url('/assets/fonts/BancoDoBrasilTextos-Bold.ttf') format('truetype');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "BancoDoBrasilTextos";
-  src: url('/assets/fonts/BancoDoBrasilTextos-XBold.ttf') format('truetype');
-  font-weight: 800;
-}
-
-:root {
-
-  --fonts-titles: 'BancoDoBrasilTitulos',
-  Arial,
-  -apple-system,
-  BlinkMacSystemFont,
-  'Segoe UI',
-  Helvetica,
-  'Apple Color Emoji',
-  'Segoe UI Emoji',
-  'Segoe UI Symbol',
-  sans-serif;
-
-  --fonts-texts: 'BancoDoBrasilTextos',
-  Arial,
-  -apple-system,
-  BlinkMacSystemFont,
-  'Segoe UI',
-  Helvetica,
-  'Apple Color Emoji',
-  'Segoe UI Emoji',
-  'Segoe UI Symbol',
-  sans-serif;
-
-}
 
 *,
 *::before,
@@ -110,9 +31,8 @@ Remove the margin in all browsers.
   padding: 0;
   outline: 0;
   -webkit-tap-highlight-color:${({ theme }) => theme.colors.tertiary.one}00;
-  scrollbar-color: ${({ theme }) => theme.colors.quaternary.two} ${({
-  theme,
-}) => theme.colors.sevenary.four};
+  scrollbar-color: ${({ theme }) => theme.colors.quaternary.two} ${({ theme }) =>
+  theme.colors.sevenary.four};
   scrollbar-width: thin;
 }
 
@@ -631,10 +551,9 @@ body {
   font-family: var(--fonts-texts);
   font-weight: 300;
   font-size:${({ theme }) => theme.SPACING_ONE};
-  margin: 0;
+  margin: 0 !important;
   line-height: inherit;
-  background: ${({ theme }) => theme.colors.sevenary.three};
-
+  background: ${({ theme }) => theme.colors.sevenary.four};
 }
 
 html{
@@ -670,10 +589,8 @@ html{
 }
 
 #root{
-  height: 100vh;
   display: flex;
   flex: 1;
-  position: absolute;
 }
 
 `;

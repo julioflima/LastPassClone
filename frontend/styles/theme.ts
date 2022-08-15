@@ -2,8 +2,8 @@ export const theme = {
   colors: {
     primary: {
       one: '#D13B3A',
-      two: '#005c99',
-      three: '#034471',
+      two: '#D13B3A80',
+      three: '#c71514',
       four: '#5A6F8B',
       six: '#CEE3F8',
       seven: '#0059B2'
