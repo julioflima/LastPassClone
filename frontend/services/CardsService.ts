@@ -3,7 +3,7 @@ import ApiService from './ApiService';
 
 export default class CardsService extends ApiService {
   constructor() {
-    const baseUrl = String(process.env.BASE_URL);
+    const baseUrl = String(process.env.NEXT_PUBLIC_BASE_URL);
     const path = '/cards';
 
     super({}, baseUrl + path);

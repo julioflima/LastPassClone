@@ -6,9 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import AddCard from '../components/AddCard';
 import Card from '../components/Card';
+import FormDelete from '../components/FormDelete';
 import Modal from '../components/Modal';
 import Search from '../components/Search';
 import { ICard } from '../interfaces/ICard';
@@ -21,16 +22,16 @@ export interface IHomeProps {
 
 const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
   const [cards, setCards] = useState<ICard[]>(cardsDefault);
-  const [selectedCard, setSelectedCards] = useState<ICard>({} as ICard);
+  const [selectedCard, setSelectedCards] = useState<ICard | null>(null);
   const [search, setSearch] = useState('');
-  const [titleModal, setTitleModal] = useState('');
-  const [openModal, setOpenModal] = useState(false);
-  const [openContext, setOpenContext] = useState({
+
+  const initOpenedContext = {
     isOpen: false,
     isNew: false,
-    isDelete: true,
+    isDelete: false,
     isEdit: false
-  });
+  };
+  const [openedContext, setOpenedContext] = useState(initOpenedContext);
 
   const StyledToolbar = styled(Toolbar)(({ theme: themeMui }) => ({
     backgroundColor: theme.colors.primary.one,
@@ -42,35 +43,57 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
     }
   }));
 
+  const title = useMemo(() => {
+    if (openedContext.isOpen) return 'View password';
+    if (openedContext.isDelete) return 'Delete password';
+    if (openedContext.isEdit) return 'Edit password';
+    if (openedContext.isOpen) return 'Add password';
+    return '';
+  }, [openedContext]);
+
+  const open = Object.values(openedContext).some((value) => value);
+
+  const onLoad = async () => {
+    try {
+      const cards = await new CardsService().get();
+      setCards(cards);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const onSearch = useCallback((search: string) => {
     setCards(cardsDefault.filter((card) => card.name.toLowerCase().includes(search.toLowerCase())));
     setSearch(search);
   }, []);
 
   const onNew = () => {
-    setTitleModal('Add password');
-    setOpenModal(true);
+    setOpenedContext({ ...initOpenedContext, isNew: true });
+    setSelectedCards(null);
   };
 
   const onOpen = (card: ICard) => {
+    setOpenedContext({ ...initOpenedContext, isOpen: true });
     setSelectedCards(card);
-    setTitleModal('View password');
-    setOpenModal(true);
   };
 
   const onEdit = (card: ICard) => {
+    setOpenedContext({ ...initOpenedContext, isEdit: true });
     setSelectedCards(card);
-    setTitleModal('Editar carta');
-    setOpenModal(true);
   };
 
   const onDelete = (card: ICard) => {
+    setOpenedContext({ ...initOpenedContext, isDelete: true });
     setSelectedCards(card);
-    setTitleModal('Delete password');
-    setOpenModal(true);
   };
 
-  const onCloseModal = () => setOpenModal(false);
+  const onCloseModal = () => setOpenedContext(initOpenedContext);
+
+  const onRefresh = () => {
+    setSelectedCards(null);
+    setOpenedContext(initOpenedContext);
+    onLoad();
+  };
 
   return (
     <>
@@ -112,10 +135,10 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
           </Grid>
         </Box>
       </Box>
-      <Modal open={openModal} onClose={onCloseModal} title="Title">
-        <Typography variant="h6" color="black" component="div">
-          {search}
-        </Typography>
+      <Modal open={open} onClose={onCloseModal} title={title}>
+        {selectedCard && openedContext.isDelete && (
+          <FormDelete onClick={onRefresh} {...selectedCard} />
+        )}
       </Modal>
     </>
   );

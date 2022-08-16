@@ -2,7 +2,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
@@ -28,7 +27,13 @@ export interface IBootstrapDialogTitleProps {
 
 const BootstrapDialogTitle = ({ children, onClose, ...other }: IBootstrapDialogTitleProps) => (
   <DialogTitle
-    sx={{ m: 0, p: 2, background: theme.colors.primary.one, color: theme.colors.sevenary.one }}
+    sx={{
+      m: 0,
+      p: 2,
+      height: 54,
+      background: theme.colors.primary.one,
+      color: theme.colors.sevenary.one
+    }}
     {...other}
   >
     <Typography variant="h6" color="white" component="div" sx={{ fontSize: 16, fontWeight: 400 }}>
@@ -93,18 +98,6 @@ const Modal: FC<IModalProps> = ({
       <DialogContent dividers sx={{ minWidth: 600 }}>
         {children}
       </DialogContent>
-      {onAction && (
-        <DialogActions>
-          <ButtonStyled
-            autoFocus
-            variant="contained"
-            onClick={onAction}
-            sx={{ background: theme.colors.primary.one }}
-          >
-            {titleAction}
-          </ButtonStyled>
-        </DialogActions>
-      )}
     </BootstrapDialog>
   );
 };
