@@ -137,7 +137,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
                 variant="standard"
                 fullWidth
                 value={value}
-                defaultValue={edit ? ' ' : ''}
+                defaultValue={edit || read ? ' ' : ''}
                 error={!!errors.url}
                 helperText={errors?.url?.message}
                 disabled={read}
@@ -155,7 +155,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
                 label="Name"
                 variant="standard"
                 value={value}
-                defaultValue={edit ? ' ' : ''}
+                defaultValue={edit || read ? ' ' : ''}
                 fullWidth
                 error={!!errors.name}
                 helperText={errors?.name?.message}
@@ -174,7 +174,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
                 label="Username"
                 variant="standard"
                 value={value}
-                defaultValue={edit ? ' ' : ''}
+                defaultValue={edit || read ? ' ' : ''}
                 fullWidth
                 error={!!errors.username}
                 helperText={errors?.username?.message}
@@ -193,7 +193,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
                 <Input
                   type={hidePassword ? 'text' : 'password'}
                   value={value}
-                  defaultValue={edit ? ' ' : ''}
+                  defaultValue={edit || read ? ' ' : ''}
                   onChange={onChange}
                   endAdornment={
                     <InputAdornment position="end">
