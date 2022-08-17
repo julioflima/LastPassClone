@@ -10,6 +10,7 @@ import { useCallback, useMemo, useState } from 'react';
 import AddCard from '../components/AddCard';
 import Card from '../components/Card';
 import FormDelete from '../components/FormDelete';
+import Forms from '../components/Forms';
 import Modal from '../components/Modal';
 import Search from '../components/Search';
 import { ICard } from '../interfaces/ICard';
@@ -22,7 +23,7 @@ export interface IHomeProps {
 
 const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
   const [cards, setCards] = useState<ICard[]>(cardsDefault);
-  const [selectedCard, setSelectedCards] = useState<ICard | null>(null);
+  const [selectedCard, setSelectedCards] = useState<ICard>({} as ICard);
   const [search, setSearch] = useState('');
 
   const initOpenedContext = {
@@ -47,7 +48,7 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
     if (openedContext.isOpen) return 'View password';
     if (openedContext.isDelete) return 'Delete password';
     if (openedContext.isEdit) return 'Edit password';
-    if (openedContext.isOpen) return 'Add password';
+    if (openedContext.isNew) return 'Add password';
     return '';
   }, [openedContext]);
 
@@ -55,7 +56,7 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
 
   const onLoad = async () => {
     try {
-      const cards = await new CardsService().get();
+      const cards = await new CardsService().getAll();
       setCards(cards);
     } catch (err) {
       console.error(err);
@@ -67,9 +68,11 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
     setSearch(search);
   }, []);
 
+  const onCloseModal = () => setOpenedContext(initOpenedContext);
+
   const onNew = () => {
     setOpenedContext({ ...initOpenedContext, isNew: true });
-    setSelectedCards(null);
+    setSelectedCards({} as ICard);
   };
 
   const onOpen = (card: ICard) => {
@@ -77,23 +80,23 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
     setSelectedCards(card);
   };
 
-  const onEdit = (card: ICard) => {
+  const onEdit = useCallback((card: ICard) => {
+    onCloseModal();
     setOpenedContext({ ...initOpenedContext, isEdit: true });
     setSelectedCards(card);
-  };
+  }, []);
 
-  const onDelete = (card: ICard) => {
+  const onDelete = useCallback((card: ICard) => {
+    onCloseModal();
     setOpenedContext({ ...initOpenedContext, isDelete: true });
     setSelectedCards(card);
-  };
+  }, []);
 
-  const onCloseModal = () => setOpenedContext(initOpenedContext);
-
-  const onRefresh = () => {
-    setSelectedCards(null);
+  const onRefresh = useCallback(() => {
+    setSelectedCards({} as ICard);
     setOpenedContext(initOpenedContext);
     onLoad();
-  };
+  }, []);
 
   return (
     <>
@@ -139,6 +142,17 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
         {selectedCard && openedContext.isDelete && (
           <FormDelete onClick={onRefresh} {...selectedCard} />
         )}
+        {!openedContext.isDelete && (
+          <Forms
+            create={openedContext.isNew}
+            read={openedContext.isOpen}
+            edit={openedContext.isEdit}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            onRefresh={onRefresh}
+            {...selectedCard}
+          />
+        )}
       </Modal>
     </>
   );
@@ -147,7 +161,7 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      cards: await new CardsService().get()
+      cards: await new CardsService().getAll()
     },
     revalidate: 1
   };

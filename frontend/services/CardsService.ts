@@ -9,8 +9,12 @@ export default class CardsService extends ApiService {
     super({}, baseUrl + path);
   }
 
-  public async get(): Promise<ICard[]> {
+  public async getAll(): Promise<ICard[]> {
     return this.api.get('');
+  }
+
+  public async get(id: number): Promise<ICard> {
+    return this.api.get(`/${id}`);
   }
 
   public async put(id: number, data: ICard): Promise<void> {
