@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import CopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import Visibility from '@mui/icons-material/Visibility';
@@ -58,9 +59,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
     handleSubmit,
     formState: { errors, isDirty, isValid },
     getValues,
-    reset,
-    setValue,
-    trigger
+    reset
   } = useForm<ICard>({
     resolver: yupResolver(schema),
     mode: 'onChange',
@@ -114,6 +113,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
   const handleDelete = () => onDelete(card);
 
   const handleClickShowPassword = () => setHidePassword((oldState) => !oldState);
+  const handleCopy = () => navigator.clipboard.writeText(initialCard?.password);
 
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -203,6 +203,9 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
                         sx={{ top: -6 }}
                       >
                         {hidePassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                      <IconButton onClick={handleCopy} sx={{ top: -6 }}>
+                        <CopyIcon />
                       </IconButton>
                     </InputAdornment>
                   }
