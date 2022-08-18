@@ -65,12 +65,12 @@
 
 ## Postman
 
-- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
+- Please see the file in ```backend/LastPassClone.postman_collection.json``` to get the postman documentation:
 
 ## Back End
 
 <p align="justify">
-To be easy to edit it was maintened the base url in a file ```.env```.
+To be easy to edit it was maintened the base url in a file  <strong>.env</strong>env.
 <p align="justify">
 It was used the Express to do the calls of database, nothing much complex here. All validations are made in frontend part.</p>
 <p align="justify">
