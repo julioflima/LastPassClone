@@ -2,18 +2,9 @@
     <span>LastPass Clone  ✂️ 📋</span>
 </h1>
 
-## PREVIEW
+# Getting Started
 
-https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-973b-4a2df98528c0.mp4
-
-## Getting Started
-
-
-### Postman
-
-- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
-
-### Database
+##### Database
 
 - First, enter in the database dir:
 
@@ -29,11 +20,18 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
     yarn && yarn dev
     ```
 
-### Middle Step I
+#### Middle Step I
 
 - Open a new terminal tab.
 
-### Frontend
+
+# Documentation
+
+#### Postman
+
+- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
+
+#### Frontend
 
 - First, enter in the frontend dir:
 
@@ -49,11 +47,11 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
     yarn && yarn dev
     ```
 
-### Middle Step II
+#### Middle Step II
 
 - Open a new terminal tab.
 
-### Backend
+#### Backend
 
 - First, enter in the backend dir:
 
@@ -110,7 +108,7 @@ Another technology that Next provides is Image and Fonts optimization.
 Is good to quote too the ISR (Incremental Static Regeneration), with you could generate on build some pages, but you could determine when they gonna be revalidated, and even generate pages that was not generated on the build, buy demand.
 </p>
 
-## Referece to Clone:
+# Refereces:
 
 Here is an overview of LastPass: https://www.youtube.com/watch?v=a86PbT5XZt8  
 • Please review these two things in the video to keep this simple:
