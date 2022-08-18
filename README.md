@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-##### Database
+#### Database
 
 - First, enter in the database dir:
 
@@ -60,9 +60,10 @@
     # or
     yarn && yarn dev
     ```
+
 ## Documentation
 
-#### Postman
+## Postman
 
 - Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
 
@@ -88,7 +89,7 @@ Open <a href="http://localhost:3000">http://localhost:3000</a> with your browser
 You can start editing the page by modifying <strong><i>pages/index.tsx</i></strong>. The page auto-updates as you edit the file.
 </p>
 
-### NextJS:
+### NextJS
 
 <p align="justify">
 NextJS is the best nowadays framework for frontend, it provides the productivity of React with a lot of features that could improve a lot the SEO and by consequence the UX.
@@ -103,7 +104,7 @@ Another technology that Next provides is Image and Fonts optimization.
 Is good to quote too the ISR (Incremental Static Regeneration), with you could generate on build some pages, but you could determine when they gonna be revalidated, and even generate pages that was not generated on the build, buy demand.
 </p>
 
-# Refereces:
+## Refereces:
 
 Here is an overview of LastPass: https://www.youtube.com/watch?v=a86PbT5XZt8  
 • Please review these two things in the video to keep this simple:
