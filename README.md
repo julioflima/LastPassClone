@@ -2,7 +2,7 @@
     <span>LastPass Clone  ✂️ 📋</span>
 </h1>
 
-# Getting Started
+## Getting Started
 
 ##### Database
 
@@ -24,12 +24,6 @@
 
 - Open a new terminal tab.
 
-
-# Documentation
-
-#### Postman
-
-- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
 
 #### Frontend
 
@@ -66,6 +60,11 @@
     # or
     yarn && yarn dev
     ```
+## Documentation
+
+#### Postman
+
+- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
 
 ## Back End
 
