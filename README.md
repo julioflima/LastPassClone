@@ -69,21 +69,17 @@
 ## Back End
 
 <p align="justify">
-To not expose the enviroment secrets to call the backend of <a href="https://developers.themoviedb.org/4/getting-started/authorization">TMDB API</a>, was used Serverless Functions that the NextJS provide to use.
+To be easy to edit it was maintened the base url in a file ```.env```.
 <p align="justify">
-By this way, every page called is generated on backend, so no "env" is exposed and in case of some call to api happening in frontend gonna be call a Serverless Function available on <strong><i>/api/*</i></strong>.
-</p>
+It was used the Express to do the calls of database, nothing much complex here. All validations are made in frontend part.</p>
 <p align="justify">
-The <a href="https://nextjs.org/docs/api-routes/introduction">API routes</a> can be accessed on <a href="http://localhost:3000/api/favorites">http://localhost:3000/api/favorites</a>. This endpoint can be edited in <strong><i>pages/api/favorites.ts</i></strong>.
-</p>
-<p align="justify">
-The <strong><i>pages/api</i></strong> directory is mapped to <strong><i>/api/*</i></strong>. Files in this directory are treated as <a href="https://nextjs.org/docs/api-routes/introduction">API routes</a> instead of React pages.
+The API routes</a> can be accessed on <a href="http://localhost:3333">http://localhost:3333</a>. All routes are described as well in the Postman.
 </p>
 
 ## Front End
 
 <p align="justify">
-The aplication was developed in NextJS using the most possible otimizations tha the NextJS provides, follow in below more. This aplication has a good responsivity, but that part is not completed (just missed the header to be more responsive, in this version was really easy and fast to implement it).
+The aplication was developed in NextJS using the most possible otimizations tha the NextJS provides, follow in below more. This aplication has a ok responsivity, but that part is not the focus here (just missed more tests to be perfect due the time it was not possile).
 </p>
 <p align="justify">
 Open <a href="http://localhost:3000">http://localhost:3000</a> with your browser to see the result.
