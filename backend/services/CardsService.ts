@@ -1,16 +1,17 @@
-import { ICard } from '../interfaces/ICard';
-import ApiService from './ApiService';
+import { ICard } from "../interfaces/ICard";
+import ApiService from "./ApiService";
+require("dotenv").config();
 
 export default class CardsService extends ApiService {
   constructor() {
-    const baseUrl = String(process.env.NEXT_PUBLIC_BASE_URL);
-    const path = '/password-cards';
+    const baseUrl = String(process.env.BASE_URL);
+    const path = "/cards";
 
     super({}, baseUrl + path);
   }
 
   public async getAll(): Promise<ICard[]> {
-    return this.api.get('');
+    return this.api.get("");
   }
 
   public async get(id: number): Promise<ICard> {
@@ -22,7 +23,7 @@ export default class CardsService extends ApiService {
   }
 
   public async post(data: ICard): Promise<void> {
-    return this.api.post('', data);
+    return this.api.post("", data);
   }
 
   public async delete(id: number): Promise<void> {

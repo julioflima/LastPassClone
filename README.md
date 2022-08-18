@@ -8,6 +8,11 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
 
 ## Getting Started
 
+
+### Postman
+
+- Please see the file in ``` backend/LastPassClone.postman_collection.json``` to get the postman documentation:
+
 ### Database
 
 - First, enter in the database dir:
@@ -19,9 +24,9 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
 - First, run the database server:
 
     ```bash
-    npm i && npm run start
+    npm i && npm run dev
     # or
-    yarn && yarn start
+    yarn && yarn dev
     ```
 
 ### Middle Step I
@@ -39,9 +44,9 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
 - First, run the frontend server:
 
     ```bash
-    npm i && npm run start
+    npm i && npm run dev
     # or
-    yarn && yarn start
+    yarn && yarn dev
     ```
 
 ### Middle Step II
@@ -59,9 +64,9 @@ https://user-images.githubusercontent.com/17098382/133042338-5358e9e3-2413-45f7-
 - First, run the backend server:
 
     ```bash
-    npm i && npm run start
+    npm i && npm run dev
     # or
-    yarn && yarn start
+    yarn && yarn dev
     ```
 
 ## Back End
