@@ -63,7 +63,7 @@ const Forms: FC<IForms> = ({ create, edit, read, onEdit, onDelete, onRefresh, ..
     trigger
   } = useForm<ICard>({
     resolver: yupResolver(schema),
-    mode: 'onBlur',
+    mode: 'onChange',
     defaultValues: useMemo(() => initialCard, [initialCard])
   });
 
