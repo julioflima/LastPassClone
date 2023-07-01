@@ -110,7 +110,7 @@ const Home: NextPage<IHomeProps> = ({ cards: cardsDefault }) => {
                 </Typography>
                 <Image src="/favicon.png" alt="LastPass Clone" width={35} height={35} />
                 <Typography variant="h6" color="inherit" component="div">
-                  Clone
+                  Clone - Rafael
                 </Typography>
               </Box>
               <Search onSearch={onSearch} value={search} />

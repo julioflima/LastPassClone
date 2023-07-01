@@ -79,24 +79,10 @@
     },
     {
       "url": "https:// juliolima.com",
-      "name": "JulioLima",
+      "name": "Rafael",
       "username": "julioflima",
-      "password": "julio",
+      "password": "cesar",
       "id": 15
-    },
-    {
-      "url": "www.juliolima.com",
-      "name": "Julio Cesar",
-      "username": "juliocflima",
-      "password": "julioflima",
-      "id": 16
-    },
-    {
-      "url": "https://test.com",
-      "name": "Test",
-      "username": "juliolima",
-      "password": "lastpassclone",
-      "id": 18
     }
   ]
 }
