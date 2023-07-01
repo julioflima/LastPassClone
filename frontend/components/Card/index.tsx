@@ -26,7 +26,7 @@ const Card: FC<ICard & ICardProps> = ({ onOpen, onEdit, onDelete, ...rest }) => 
     transition: 'all 0.2 ease-in-out !important',
     transitionProperty: 'all',
     '&:hover': {
-      background: theme.colors.quaternary.six,
+      background: theme.colors.quaternary.ten,
       transform: 'scale(1.03)'
     }
   }));
